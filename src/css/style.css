@@ -1,0 +1,102 @@
+*{
+    font-family: sans-serif;
+    font-size: 12px;
+    color:white;
+}
+
+#lang{
+    background-color: blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10px;
+    height: 10px;
+    font-style: 20px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+#inputArea{
+    background-color: rgb(209, 209, 209);
+    padding: 10px;
+    border: 0px;
+    font-family: monospace;
+    color: rgb(68, 68, 68);
+    width: 730px;
+    height: 160px;
+    font-size: 16px;
+}
+
+#tip{
+    color: rgb(92, 92, 92);
+}
+
+#keyboard-wrapper{
+    width: 740px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(74, 73, 73);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+}
+
+.key{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    align-items: center;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(120, 120, 120);
+}
+
+.key:hover{
+    background-color: rgb(195, 195, 195);
+}
+
+.highlight{
+    background-color: rgb(188, 219, 11);
+}
+
+#arrowWrapper{
+}
+
+.ArrowUp, .ArrowDown{
+    height: 17px;
+}
+
+.Backspace{
+    width: 80px;
+}
+
+.Tab{
+    width: 80px;
+}
+
+.CapsLock{
+    width: 84px;
+}
+
+.Enter{
+    width: 85px;
+}
+
+.Space{
+    width: 230px;
+}
+
+.AltLeft, .AltRight, .MetaLeft, .MetaRight, .ControlLeft, .ControlRight{
+    width: 60px;
+}
+
+.ShiftLeft, .ShiftRight{
+    width: 110px;
+}
