@@ -14,7 +14,6 @@ export function createKeyboard(){
 function createInputArea(){
     const textAreaEl = document.createElement(`textarea`);
     textAreaEl.setAttribute(`id`,`inputArea`);
-    textAreaEl.innerHTML = `dsiofaisasdfas`;
     document.body.appendChild(textAreaEl);
 }
 

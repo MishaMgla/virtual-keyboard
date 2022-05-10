@@ -6,10 +6,10 @@ export class Key{
     }
 
     getEn() {
-        return this.eng.low;
+        return this.eng;
     }
 
     getRu(){
-        return this.ru.low;
+        return this.ru;
     }
 }

@@ -57,7 +57,7 @@ export const keyList = [
           eng:{
            low: `3`,
            up: `#`,
-           caps: `№`,
+           caps: `3`,
            shiftCaps: `#`
           }
        },

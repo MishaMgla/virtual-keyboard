@@ -15,6 +15,7 @@
     font-style: 20px;
     padding: 10px;
     text-transform: uppercase;
+    margin-bottom: 2px;
 }
 
 #inputArea{
@@ -58,9 +59,9 @@
     background-color: rgb(120, 120, 120);
 }
 
-.key:hover{
+/* .key:hover{
     background-color: rgb(195, 195, 195);
-}
+} */
 
 .highlight{
     background-color: rgb(188, 219, 11);
