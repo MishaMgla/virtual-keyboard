@@ -69,34 +69,34 @@
 #arrowWrapper{
 }
 
-.ArrowUp, .ArrowDown{
+#ArrowUp, #ArrowDown{
     height: 17px;
 }
 
-.Backspace{
+#Backspace{
     width: 80px;
 }
 
-.Tab{
+#Tab{
     width: 80px;
 }
 
-.CapsLock{
+#CapsLock{
     width: 84px;
 }
 
-.Enter{
+#Enter{
     width: 85px;
 }
 
-.Space{
+#Space{
     width: 230px;
 }
 
-.AltLeft, .AltRight, .MetaLeft, .MetaRight, .ControlLeft, .ControlRight{
+#AltLeft, #AltRight, #MetaLeft, #MetaRight, #ControlLeft, #ControlRight{
     width: 60px;
 }
 
-.ShiftLeft, .ShiftRight{
+#ShiftLeft, #ShiftRight{
     width: 110px;
 }

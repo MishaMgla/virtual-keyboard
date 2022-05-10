@@ -10,7 +10,7 @@ export const keyList = [
           shiftCaps: `[`
          },
          eng:{
-          low: `-`,
+          low: `\``,
           up: `~`,
           caps: `\``,
           shiftCaps: `~`
@@ -20,14 +20,14 @@ export const keyList = [
           codeName: `Digit1`,
           ru: {
            low: `1`,
-           up: `1`,
-           caps: `!`,
+           up: `!`,
+           caps: `1`,
            shiftCaps: `!`
           },
           eng:{
            low: `1`,
-           up: `1`,
-           caps: `!`,
+           up: `!`,
+           caps: `1`,
            shiftCaps: `!`
           }
       },
@@ -35,44 +35,44 @@ export const keyList = [
           codeName: `Digit2`,
           ru: {
            low: `2`,
-           up: `2`,
-           caps: `@`,
-           shiftCaps: `@`
+           up: `"`,
+           caps: `2`,
+           shiftCaps: `"`
           },
           eng:{
            low: `2`,
-           up: `2`,
-           caps: `"`,
-           shiftCaps: `"`
+           up: `@`,
+           caps: `2`,
+           shiftCaps: `@`
           }
        },
        {
           codeName: `Digit3`,
           ru: {
            low: `3`,
-           up: `3`,
-           caps: `#`,
-           shiftCaps: `#`
+           up: `№`,
+           caps: `3`,
+           shiftCaps: `№`
           },
           eng:{
            low: `3`,
-           up: `3`,
+           up: `#`,
            caps: `№`,
-           shiftCaps: `№`
+           shiftCaps: `#`
           }
        },
        {
           codeName: `Digit4`,
           ru: {
            low: `4`,
-           up: `4`,
-           caps: `%`,
+           up: `%`,
+           caps: `4`,
            shiftCaps: `%`
           },
           eng:{
            low: `4`,
-           up: `4`,
-           caps: `$`,
+           up: `$`,
+           caps: `4`,
            shiftCaps: `$`
           }
        },
@@ -80,14 +80,14 @@ export const keyList = [
           codeName: `Digit5`,
           ru: {
            low: `5`,
-           up: `5`,
-           caps: `:`,
+           up: `:`,
+           caps: `5`,
            shiftCaps: `:`
           },
           eng:{
            low: `5`,
-           up: `5`,
-           caps: `%`,
+           up: `%`,
+           caps: `5`,
            shiftCaps: `%`
           }
        },
@@ -95,14 +95,14 @@ export const keyList = [
           codeName: `Digit6`,
           ru: {
            low: `6`,
-           up: `6`,
-           caps: `,`,
+           up: `,`,
+           caps: `6`,
            shiftCaps: `,`
           },
           eng:{
            low: `6`,
-           up: `6`,
-           caps: `^`,
+           up: `^`,
+           caps: `6`,
            shiftCaps: `^`
           }
        },
@@ -110,14 +110,14 @@ export const keyList = [
           codeName: `Digit7`,
           ru: {
            low: `7`,
-           up: `7`,
-           caps: `.`,
+           up: `.`,
+           caps: `7`,
            shiftCaps: `.`
           },
           eng:{
            low: `7`,
-           up: `7`,
-           caps: `&`,
+           up: `&`,
+           caps: `7`,
            shiftCaps: `&`
           }
        },
@@ -125,59 +125,59 @@ export const keyList = [
           codeName: `Digit8`,
           ru: {
            low: `8`,
-           up: `8`,
-           caps: `*`,
-           shiftCaps: `*`
+           up: `;`,
+           caps: `8`,
+           shiftCaps: `;`
           },
           eng:{
            low: `8`,
-           up: `8`,
-           caps: `;`,
-           shiftCaps: `;`
+           up: `*`,
+           caps: `8`,
+           shiftCaps: `*`
           }
        },
        {
           codeName: `Digit9`,
           ru: {
-           low: `9`,
-           up: `9`,
-           caps: `(`,
-           shiftCaps: `(`
+            low: `9`,
+            up: `(`,
+            caps: `9`,
+            shiftCaps: `(`
           },
           eng:{
            low: `9`,
-           up: `9`,
-           caps: `(`,
+           up: `(`,
+           caps: `9`,
            shiftCaps: `(`
           }
        },
        {
           codeName: `Digit0`,
           ru: {
-           low: `0`,
-           up: `0`,
-           caps: `)`,
-           shiftCaps: `)`
+            low: `0`,
+            up: `)`,
+            caps: `0`,
+            shiftCaps: `)`
           },
           eng:{
            low: `0`,
-           up: `0`,
-           caps: `)`,
+           up: `)`,
+           caps: `0`,
            shiftCaps: `)`
           }
        },
        {
           codeName: `Minus`,
           ru: {
-           low: `-`,
-           up: `-`,
-           caps: `_`,
-           shiftCaps: `_`
+            low: `-`,
+            up: `_`,
+            caps: `-`,
+            shiftCaps: `_`
           },
           eng:{
            low: `-`,
-           up: `-`,
-           caps: `_`,
+           up: `_`,
+           caps: `-`,
            shiftCaps: `_`
           }
        },
@@ -185,14 +185,14 @@ export const keyList = [
           codeName: `Equal`,
           ru: {
            low: `=`,
-           up: `=`,
-           caps: `+`,
+           up: `+`,
+           caps: `=`,
            shiftCaps: `+`
           },
           eng:{
            low: `=`,
-           up: `=`,
-           caps: `+`,
+           up: `+`,
+           caps: `=`,
            shiftCaps: `+`
           }
        },
@@ -380,10 +380,10 @@ export const keyList = [
       {
          codeName: `BracketLeft`,
          ru: {
-          low: `-`,
-          up: `-`,
-          caps: `_`,
-          shiftCaps: `_`
+          low: `х`,
+          up: `Х`,
+          caps: `Х`,
+          shiftCaps: `х`
          },
          eng:{
           low: `[`,
@@ -395,10 +395,10 @@ export const keyList = [
       {
          codeName: `BracketRight`,
          ru: {
-          low: `=`,
-          up: `=`,
-          caps: `+`,
-          shiftCaps: `+`
+          low: `ъ`,
+          up: `Ъ`,
+          caps: `Ъ`,
+          shiftCaps: `ъ`
          },
          eng:{
           low: `]`,
@@ -773,13 +773,13 @@ export const keyList = [
       codeName: `Slash`,
       ru: {
          low: `/`,
-         up: `/`,
+         up: `?`,
          caps: `/`,
          shiftCaps: `?`
          },
          eng:{
          low: `/`,
-         up: `/`,
+         up: `?`,
          caps: `/`,
          shiftCaps: `?`
          }

@@ -43,7 +43,8 @@ function createRows(){
         for (const key of row) {
         keyMap.set(key.codeName,new Key(key.codeName,key.ru,key.eng));
         const keyEl = document.createElement(`div`);
-        keyEl.setAttribute(`class`,`key ${key.codeName}`);
+        keyEl.setAttribute(`class`,`key`);
+        keyEl.setAttribute(`id`,`${key.codeName}`);
         keyEl.innerHTML = `${key.eng.low}`;
         let length = document.getElementsByClassName(`row`).length;
         if(key.codeName == `ArrowUp` || key.codeName == `ArrowDown`){
@@ -61,16 +62,17 @@ function createRows(){
     }
 }
 
-export function switchLangDisplay(){
+export function switchKeys(keyboardState){
     let langEl = document.getElementById(`lang`);
     langEl.innerHTML = lang == `en` ? `ru` : `en`;
     for (const [key, value] of keyMap) {
-        const el = document.getElementsByClassName(value.codeName)[0];
-        console.log(`-----`+value.getRu());
+        const el = document.getElementById(value.codeName);
+        let langStorage;
         if(lang == `en`){
-            el.innerHTML = value.getRu();
+            langStorage = value.ru;
         } else {
-            el.innerHTML = value.getEn();
+            langStorage = value.eng;
         }
+        el.innerHTML = langStorage[`${keyboardState}`];
     }
 }
