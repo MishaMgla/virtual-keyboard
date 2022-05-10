@@ -19,9 +19,11 @@
 }
 
 #inputArea{
-    background-color: rgb(209, 209, 209);
+    background-color: rgb(229, 229, 229);
     padding: 10px;
-    border: 0px;
+    border: none;
+    outline: none;
+    resize: none;
     font-family: monospace;
     color: rgb(68, 68, 68);
     width: 730px;

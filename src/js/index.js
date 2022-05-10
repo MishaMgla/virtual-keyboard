@@ -1,11 +1,11 @@
 import { createKeyboard, keyMap, switchKeys } from "./layout.js";
 import { lang, switchLang } from "./lang.js";
-import { add, moveSelector, deletePrev, addNewLine, addSpace, addTab } from "./inputArea.js";
+import { add, moveSelector, backspace, addNewLine, addSpace, addTab } from "./inputArea.js";
 
 let capsIsOn = false;
 let pressed = new Set();
 let state = `low`;
-const skipKeys = [`Tab`, `Backspace`, `ShiftRight`, `ShiftLeft`, `MetaLeft`, `MetaRight`, `AltLeft`, `AltRight`, `ControlLeft`, `ControlRight`, `CapsLock`];
+const skipKeys = [`Backspace`, `ShiftRight`, `ShiftLeft`, `MetaLeft`, `MetaRight`, `AltLeft`, `AltRight`, `ControlLeft`, `ControlRight`, `CapsLock`];
 
 createKeyboard();
 
@@ -31,12 +31,12 @@ function upHandler(event) {
     if (!keyMap.has(keyCode)) return;
     let key = document.getElementById(keyCode);
     key.classList.remove(`highlight`);
-    if (pressed.has(`ShiftLeft`) || pressed.has(`ShiftRight`)) updateState(event);
+    pressed.delete(keyCode);
+    if (keyCode == `ShiftLeft` || keyCode == `ShiftRight`) updateState(event);
     if (keyCode == `CapsLock`) {
         capsIsOn = false;
         updateState(event);
     }
-    pressed.delete(keyCode);
 }
 
 //   keydown mousedown events
@@ -59,7 +59,10 @@ function downHandler(event) {
     }
     const keyCode = event.type == `mousedown` ? event.target.getAttribute(`id`) : event.code;
     if (keyMap.has(keyCode)) {
-        event.preventDefault();
+        if(keyCode != `ArrowLeft` && keyCode != `ArrowDown` && keyCode != `ArrowRight` && keyCode != `ArrowUp`){
+            // console.log(`prevent def`);
+            event.preventDefault();
+        }
     } else {
         return;
     }
@@ -77,15 +80,9 @@ function downHandler(event) {
         switchKeys(state);
     }
     if (keyCode == `ArrowUp` || keyCode == `ArrowDown` || keyCode == `ArrowLeft` || keyCode == `ArrowRight`) {
-        moveSelector(keyCode);
+        return;
     } else if (keyCode == `Backspace`) {
-        deletePrev();
-    } else if (keyCode == `Enter`) {
-        addNewLine();
-    } else if (keyCode == `Tab`) {
-        addTab();
-    } else if (keyCode == `Space`) {
-        addSpace();
+        backspace();
     } else if (!skipKeys.includes(keyCode)) {
         add(keyCode, state);
     }
@@ -94,26 +91,32 @@ function downHandler(event) {
 //   update keyboard state
 
 function updateState(event) {
-    if (capsIsOn) {
-        if (pressed.has(`ShiftLeft`) || pressed.has(`ShiftRight`)) {
-            state = `shiftCaps`;
-        } else {
-            state = `caps`;
-        }
-    }
-    if (pressed.has(`ShiftLeft`) || pressed.has(`ShiftRight`)) {
+    if (event.type == `keydown` || event.type == `mousedown`) {
         if (capsIsOn) {
-            state = `shiftCaps`;
-        } else {
-            state = `up`;
-        }
-    }
-    if (event.type == `keyup` || event.type == `mouseup`) {
-        if (!pressed.has(`ShiftLeft`) || !pressed.has(`ShiftRight`)) {
-            if (capsIsOn) {
+            if (pressed.has(`ShiftLeft`) || pressed.has(`ShiftRight`)) {
+                state = `shiftCaps`;
+            } else {
                 state = `caps`;
+            }
+        } else {
+            if (pressed.has(`ShiftLeft`) || pressed.has(`ShiftRight`)) {
+                state = `up`;
             } else {
                 state = `low`;
+            }
+        }
+    } else {
+        if (!capsIsOn) {
+            if (pressed.has(`ShiftLeft`) || pressed.has(`ShiftRight`)) {
+                state = `up`;
+            } else {
+                state = `low`;
+            }
+        } else {
+            if (pressed.has(`ShiftLeft`) || pressed.has(`ShiftRight`)) {
+                state = `shiftCaps`;
+            } else {
+                state = `caps`;
             }
         }
     }

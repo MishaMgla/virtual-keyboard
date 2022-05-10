@@ -44,7 +44,11 @@ function createRows(){
         const keyEl = document.createElement(`div`);
         keyEl.setAttribute(`class`,`key`);
         keyEl.setAttribute(`id`,`${key.codeName}`);
-        keyEl.innerHTML = `${key.eng.low}`;
+        if(lang == `en`){
+            keyEl.innerHTML = `${key.eng.low}`;
+        } else{
+            keyEl.innerHTML = `${key.ru.low}`;
+        }
         let length = document.getElementsByClassName(`row`).length;
         if(key.codeName == `ArrowUp` || key.codeName == `ArrowDown`){
             let arrowWrapperEl = document.getElementById(`arrowWrapper`);
@@ -63,14 +67,15 @@ function createRows(){
 
 export function switchKeys(keyboardState){
     let langEl = document.getElementById(`lang`);
-    langEl.innerHTML = lang == `en` ? `ru` : `en`;
+    console.log(`switchKeysLang `+lang);
+    langEl.innerHTML = lang == `en` ? `en` : `ru`;
     for (const [key, value] of keyMap) {
         const el = document.getElementById(value.codeName);
         let langStorage;
         if(lang == `en`){
-            langStorage = value.ru;
-        } else {
             langStorage = value.eng;
+        } else {
+            langStorage = value.ru;
         }
         el.innerHTML = langStorage[`${keyboardState}`];
     }

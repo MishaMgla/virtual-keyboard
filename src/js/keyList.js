@@ -215,16 +215,16 @@ export const keyList = [
       [{
           codeName: `Tab`,
           ru: {
-           low: `tab`,
-           up: `tab`,
-           caps: `tab`,
-           shiftCaps: `tab`
+           low: `Tab`,
+           up: `Tab`,
+           caps: `Tab`,
+           shiftCaps: `Tab`
           },
           eng:{
-           low: `tab`,
-           up: `tab`,
-           caps: `tab`,
-           shiftCaps: `tab`
+           low: `Tab`,
+           up: `Tab`,
+           caps: `Tab`,
+           shiftCaps: `Tab`
           }
        },
        {
@@ -606,16 +606,16 @@ export const keyList = [
      {
         codeName: `Enter`,
         ru: {
-            low: `return`,
-            up: `return`,
-            caps: `return`,
-            shiftCaps: `return`
+            low: `Enter`,
+            up: `Enter`,
+            caps: `Enter`,
+            shiftCaps: `Enter`
            },
            eng:{
-            low: `return`,
-            up: `return`,
-            caps: `return`,
-            shiftCaps: `return`
+            low: `Enter`,
+            up: `Enter`,
+            caps: `Enter`,
+            shiftCaps: `Enter`
            }
      }],
      // row 4
@@ -848,16 +848,16 @@ export const keyList = [
    {
       codeName: `Space`,
       ru: {
-          low: ``,
-          up: ``,
-          caps: ``,
-          shiftCaps: ``
+          low: `Space`,
+          up: `Space`,
+          caps: `Space`,
+          shiftCaps: `Space`
          },
          eng:{
-          low: ``,
-          up: ``,
-          caps: ``,
-          shiftCaps: ``
+          low: `Space`,
+          up: `Space`,
+          caps: `Space`,
+          shiftCaps: `Space`
          }
    },
    {
