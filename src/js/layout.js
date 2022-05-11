@@ -88,6 +88,7 @@ export function addAnimation(keyCode){
 
 export function removeAnimation(keyCode){
     let el = document.getElementById(keyCode);
+    if(el == null) return;
     let classList = el.classList;
     classList.add(`unmake-rounder`);
     classList.remove(`make-rounder`);

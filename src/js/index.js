@@ -20,19 +20,6 @@ document.addEventListener('mouseup', function (event) {
     upHandler(event);
 });
 
-// document.addEventListener(`mouseleave`, function(event){
-//     if (event.target.getAttribute(`class`) === null ||
-//             !event.target.getAttribute(`class`).includes(`key`)
-//         ) {
-//             return;
-//     }
-//     console.log(`!`);
-//     const keyCode = event.target.getAttribute(`id`);
-//     if(mouseClicked.has(keyCode)){
-//         upHandler(keyCode);
-//     }
-// });
-
 function upHandler(event) {
     if (event.type == `mousedown`) {
         if (event.target.getAttribute(`class`) === null ||
@@ -64,6 +51,19 @@ document.addEventListener('mousedown', function (event) {
     downHandler(event);
 });
 
+function onMouseLeave(keyCode){
+    removeAnimation (keyCode);
+    if (!keyMap.has(keyCode)) return;
+    let key = document.getElementById(keyCode);
+    key.classList.remove(`highlight`);
+    pressed.delete(keyCode);
+    if (keyCode == `ShiftLeft` || keyCode == `ShiftRight`) updateState();
+    if (keyCode == `CapsLock`) {
+        capsIsOn = false;
+        updateState();
+    }
+}
+
 function downHandler(event) {
     if (event.type == `mousedown`) {
         if (event.target.getAttribute(`class`) === null ||
@@ -71,12 +71,17 @@ function downHandler(event) {
         ) {
             return;
         }
+        const el = document.getElementById(event.target.getAttribute(`id`));
+        const keyCode = event.target.getAttribute(`id`);
+        el.addEventListener(`mouseleave`, function listener(){
+            onMouseLeave(keyCode);
+            el.removeEventListener(`mouseleave`,listener);
+        })
     }
     const keyCode = event.type == `mousedown` ? event.target.getAttribute(`id`) : event.code;
     addAnimation(keyCode);
     if (keyMap.has(keyCode)) {
         if(keyCode != `ArrowLeft` && keyCode != `ArrowDown` && keyCode != `ArrowRight` && keyCode != `ArrowUp`){
-            // console.log(`prevent def`);
             event.preventDefault();
         }
     } else {
@@ -107,7 +112,7 @@ function downHandler(event) {
 //   update keyboard state
 
 function updateState(event) {
-    if (event.type == `keydown` || event.type == `mousedown`) {
+    if (event != `undefined` || event.type == `keydown` || event.type == `mousedown`) {
         if (capsIsOn) {
             if (pressed.has(`ShiftLeft`) || pressed.has(`ShiftRight`)) {
                 state = `shiftCaps`;
