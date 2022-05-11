@@ -15,12 +15,15 @@
     font-style: 20px;
     padding: 10px;
     text-transform: uppercase;
+    margin-bottom: 2px;
 }
 
 #inputArea{
-    background-color: rgb(209, 209, 209);
+    background-color: rgb(229, 229, 229);
     padding: 10px;
-    border: 0px;
+    border: none;
+    outline: none;
+    resize: none;
     font-family: monospace;
     color: rgb(68, 68, 68);
     width: 730px;
@@ -58,9 +61,9 @@
     background-color: rgb(120, 120, 120);
 }
 
-.key:hover{
+/* .key:hover{
     background-color: rgb(195, 195, 195);
-}
+} */
 
 .highlight{
     background-color: rgb(188, 219, 11);
@@ -69,34 +72,56 @@
 #arrowWrapper{
 }
 
-.ArrowUp, .ArrowDown{
+#ArrowUp, #ArrowDown{
     height: 17px;
 }
 
-.Backspace{
+#Backspace{
     width: 80px;
 }
 
-.Tab{
+#Tab{
     width: 80px;
 }
 
-.CapsLock{
+#CapsLock{
     width: 84px;
 }
 
-.Enter{
+#Enter{
     width: 85px;
 }
 
-.Space{
+#Space{
     width: 230px;
 }
 
-.AltLeft, .AltRight, .MetaLeft, .MetaRight, .ControlLeft, .ControlRight{
+#AltLeft, #AltRight, #MetaLeft, #MetaRight, #ControlLeft, #ControlRight{
     width: 60px;
 }
 
-.ShiftLeft, .ShiftRight{
+#ShiftLeft, #ShiftRight{
     width: 110px;
+}
+
+@keyframes make-rounder{
+    from{border-radius: 5px;}
+    to{border-radius: 30px;}
+}
+
+.make-rounder{
+    animation-name: make-rounder;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes unmake-rounder{
+    from{border-radius: 30px;}
+    to{border-radius: 5px;}
+}
+
+.unmake-rounder{
+    animation-name: unmake-rounder;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards; 
 }

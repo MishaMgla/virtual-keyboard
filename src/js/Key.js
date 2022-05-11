@@ -1,15 +1,17 @@
-export class Key{
-    constructor(codeName, ru, eng){
-        this.codeName = codeName;
-        this.ru = ru;
-        this.eng = eng;
-    }
+class Key {
+  constructor(codeName, ru, eng) {
+    this.codeName = codeName;
+    this.ru = ru;
+    this.eng = eng;
+  }
 
-    getEn() {
-        return this.eng.low;
-    }
+  getEn() {
+    return this.eng;
+  }
 
-    getRu(){
-        return this.ru.low;
-    }
+  getRu() {
+    return this.ru;
+  }
 }
+
+export default Key;
