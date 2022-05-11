@@ -103,3 +103,25 @@
 #ShiftLeft, #ShiftRight{
     width: 110px;
 }
+
+@keyframes make-rounder{
+    from{border-radius: 5px;}
+    to{border-radius: 30px;}
+}
+
+.make-rounder{
+    animation-name: make-rounder;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes unmake-rounder{
+    from{border-radius: 30px;}
+    to{border-radius: 5px;}
+}
+
+.unmake-rounder{
+    animation-name: unmake-rounder;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards; 
+}

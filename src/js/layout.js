@@ -67,7 +67,6 @@ function createRows(){
 
 export function switchKeys(keyboardState){
     let langEl = document.getElementById(`lang`);
-    console.log(`switchKeysLang `+lang);
     langEl.innerHTML = lang == `en` ? `en` : `ru`;
     for (const [key, value] of keyMap) {
         const el = document.getElementById(value.codeName);
@@ -79,4 +78,20 @@ export function switchKeys(keyboardState){
         }
         el.innerHTML = langStorage[`${keyboardState}`];
     }
+}
+
+export function addAnimation(keyCode){
+    let el = document.getElementById(keyCode);
+    let classList = el.classList;
+    classList.add(`make-rounder`);
+}
+
+export function removeAnimation(keyCode){
+    let el = document.getElementById(keyCode);
+    let classList = el.classList;
+    classList.add(`unmake-rounder`);
+    classList.remove(`make-rounder`);
+    el.addEventListener("animationend", () => {
+        el.classList.remove(`unmake-rounder`);
+    });
 }

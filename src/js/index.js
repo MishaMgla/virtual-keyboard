@@ -1,10 +1,11 @@
-import { createKeyboard, keyMap, switchKeys } from "./layout.js";
+import { createKeyboard, keyMap, switchKeys,addAnimation,removeAnimation } from "./layout.js";
 import { lang, switchLang } from "./lang.js";
 import { add, moveSelector, backspace, addNewLine, addSpace, addTab } from "./inputArea.js";
 
 let capsIsOn = false;
 let pressed = new Set();
 let state = `low`;
+let mouseClicked = new Set();
 const skipKeys = [`Backspace`, `ShiftRight`, `ShiftLeft`, `MetaLeft`, `MetaRight`, `AltLeft`, `AltRight`, `ControlLeft`, `ControlRight`, `CapsLock`];
 
 createKeyboard();
@@ -19,6 +20,19 @@ document.addEventListener('mouseup', function (event) {
     upHandler(event);
 });
 
+// document.addEventListener(`mouseleave`, function(event){
+//     if (event.target.getAttribute(`class`) === null ||
+//             !event.target.getAttribute(`class`).includes(`key`)
+//         ) {
+//             return;
+//     }
+//     console.log(`!`);
+//     const keyCode = event.target.getAttribute(`id`);
+//     if(mouseClicked.has(keyCode)){
+//         upHandler(keyCode);
+//     }
+// });
+
 function upHandler(event) {
     if (event.type == `mousedown`) {
         if (event.target.getAttribute(`class`) === null ||
@@ -28,6 +42,7 @@ function upHandler(event) {
         }
     }
     const keyCode = event.type == `mouseup` ? event.target.getAttribute(`id`) : event.code;
+    removeAnimation (keyCode);
     if (!keyMap.has(keyCode)) return;
     let key = document.getElementById(keyCode);
     key.classList.remove(`highlight`);
@@ -58,6 +73,7 @@ function downHandler(event) {
         }
     }
     const keyCode = event.type == `mousedown` ? event.target.getAttribute(`id`) : event.code;
+    addAnimation(keyCode);
     if (keyMap.has(keyCode)) {
         if(keyCode != `ArrowLeft` && keyCode != `ArrowDown` && keyCode != `ArrowRight` && keyCode != `ArrowUp`){
             // console.log(`prevent def`);
