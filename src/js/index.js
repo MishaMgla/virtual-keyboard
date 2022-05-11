@@ -1,7 +1,7 @@
 import {
   createKeyboard, keyMap, switchKeys, addAnimation, removeAnimation,
 } from './layout.js';
-import {switchLang} from './lang.js';
+import { switchLang } from './lang.js';
 import {
   add, backspace,
 } from './inputArea.js';

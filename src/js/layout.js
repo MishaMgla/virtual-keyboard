@@ -28,11 +28,11 @@ function createBackplate() {
 }
 
 function createRows() {
-  for (const row of keyList) {
+  keyList.forEach((row) => {
     const rowEl = document.createElement('div');
     rowEl.setAttribute('class', 'row');
     document.getElementById('keyboard-wrapper').appendChild(rowEl);
-    for (const key of row) {
+    row.forEach((key) => {
       keyMap.set(key.codeName, new Key(key.codeName, key.ru, key.eng));
       const keyEl = document.createElement('div');
       keyEl.setAttribute('class', 'key');
@@ -54,14 +54,14 @@ function createRows() {
       } else {
         document.getElementsByClassName('row')[length - 1].appendChild(keyEl);
       }
-    }
-  }
+    });
+  });
 }
 
 export function switchKeys(keyboardState) {
   const langEl = document.getElementById('lang');
   langEl.innerHTML = lang === 'en' ? 'en' : 'ru';
-  for (const [key, value] of keyMap) {
+  keyMap.forEach((value) => {
     const el = document.getElementById(value.codeName);
     let langStorage;
     if (lang === 'en') {
@@ -70,7 +70,7 @@ export function switchKeys(keyboardState) {
       langStorage = value.ru;
     }
     el.innerHTML = langStorage[`${keyboardState}`];
-  }
+  });
 }
 
 export function addAnimation(keyCode) {

@@ -5,19 +5,16 @@ function storeLocalLang(l) {
 }
 
 function getLang() {
-  console.log(`get${lang}`);
   return lang;
 }
 
 function setLang(l) {
-  console.log(`l: ${l}`);
   storeLocalLang(l);
   lang = l;
 }
 
 function init() {
   lang = localStorage.getItem('lang');
-  console.log(`init:${localStorage.getItem('lang')}`);
   if (!lang) {
     setLang('en');
     storeLocalLang('en');
@@ -35,5 +32,5 @@ export function switchLang() {
 }
 
 export default {
-  lang, getLang, setLang, switchLang,
+  getLang, setLang, switchLang,
 };
